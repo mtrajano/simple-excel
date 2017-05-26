@@ -32,10 +32,13 @@ class Row extends \PHPExcel_Worksheet_Row implements \ArrayAccess
 
     public function getColumn($column)
     {
-        if (is_numeric($column)) {
-            $column = \PHPExcel_Cell::stringFromColumnIndex($column);
+        if (is_null($column)) { //array push
+            $column = $this->worksheet->getHighestColumn($this->row);
+            $column = \PHPExcel_Cell::columnIndexFromString($column);
+        } else if (is_string($column)) {
+            $column = \PHPExcel_Cell::columnIndexFromString($column);
         }
 
-        return $this->worksheet->getCell($column . $this->row);
+        return $this->worksheet->getCellByColumnAndRow($column, $this->row);
     }
 }
