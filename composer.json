@@ -1,0 +1,20 @@
+{
+    "name": "mtrajano/simple-excel",
+    "type": "library",
+    "description": "A wrapper around the phpexcel package, that gives it array access and some extra features",
+    "keywords": ["phpexcel","excel","simple","speadsheet"],
+    "homepage": "https://github.com/mtrajano/simple-excel",
+    "license": "LGPL-2.1",
+    "authors": [{
+        "name": "Mauricio Trajano",
+        "email": "mauriciot1993@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Mtrajano\\SimpleExcel\\": "src/"
+        }
+    },
+    "require": {
+        "phpoffice/phpexcel": "^1.8"
+    }
+}
