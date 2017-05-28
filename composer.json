@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Mtrajano\\SimpleExcel\\Tests": "tests/"
+            "Mtrajano\\SimpleExcel\\Tests\\": "tests/"
         }
     },
     "require": {
