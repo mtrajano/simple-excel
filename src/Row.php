@@ -35,7 +35,7 @@ class Row extends \PHPExcel_Worksheet_Row implements \ArrayAccess
         if (is_null($column)) { //array push
             $column = $this->getNextEmptyColumn();
         } else if (is_string($column)) {
-            $column = \PHPExcel_Cell::columnIndexFromString($column) - 1;
+            $column = Column::getNumericIndex($column);
         }
 
         return $this->worksheet->getCellByColumnAndRow($column, $this->row);
@@ -49,6 +49,6 @@ class Row extends \PHPExcel_Worksheet_Row implements \ArrayAccess
             return 0;
         }
 
-        return \PHPExcel_Cell::columnIndexFromString($column);
+        return Column::getNumericIndex($column) + 1;
     }
 }

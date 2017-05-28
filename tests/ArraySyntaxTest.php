@@ -29,6 +29,19 @@ class ArraySyntaxTest extends TestCase
         $this->assertEquals('Some other value', $this->worksheet->getCell('A1')->getValue());
     }
 
+    public function test_next_emtpy_column()
+    {
+        $row = 1;
+
+        $this->assertEquals(0, $this->worksheet[$row]->getNextEmptyColumn());
+
+        $this->worksheet[1]['A'] = 'foo';
+        $this->assertEquals(1, $this->worksheet[$row]->getNextEmptyColumn());
+
+        $this->worksheet[1][1] = 'bar';
+        $this->assertEquals(2, $this->worksheet[$row]->getNextEmptyColumn());
+    }
+
     public function test_array_push()
     {
         $values = ['abc', 'def', 'ghi'];
