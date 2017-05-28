@@ -14,7 +14,15 @@
             "Mtrajano\\SimpleExcel\\": "src/"
         }
     },
+    "autoload": {
+        "psr-4": {
+            "Mtrajano\\SimpleExcel\\Tests": "tests/"
+        }
+    },
     "require": {
         "phpoffice/phpexcel": "^1.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
     }
 }
