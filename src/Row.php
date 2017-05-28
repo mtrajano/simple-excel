@@ -16,7 +16,10 @@ class Row extends \PHPExcel_Worksheet_Row implements \ArrayAccess
         $this->row = $rowIndex;
     }
 
-    public function offsetExists($offset) {}
+    public function offsetExists($offset)
+    {
+        return $this->getColumn($offset)->getValue() !== null;
+    }
 
     public function offsetGet($offset)
     {
@@ -25,10 +28,13 @@ class Row extends \PHPExcel_Worksheet_Row implements \ArrayAccess
 
     public function offsetSet($offset, $value)
     {
-        return $this->getColumn($offset)->setValue($value);
+        $this->getColumn($offset)->setValue($value);
     }
 
-    public function offsetUnset($offset) {}
+    public function offsetUnset($offset)
+    {
+        $this->getColumn($offset)->setValue(null);
+    }
 
     public function getColumn($column)
     {

@@ -15,6 +15,26 @@ class ArraySyntaxTest extends TestCase
         $this->worksheet = $workbook->getActiveSheet();
     }
 
+    public function test_isset_cell()
+    {
+        $this->assertFalse(isset($this->worksheet[1]['A']));
+
+        $this->worksheet[1]['A'] = 'foo';
+
+        $this->assertTrue(isset($this->worksheet[1]['A']));
+    }
+
+    public function test_unset_cell()
+    {
+        $this->worksheet[1]['A'] = 'foo';
+
+        $this->assertTrue(isset($this->worksheet[1]['A']));
+
+        unset($this->worksheet[1]['A']);
+
+        $this->assertFalse(isset($this->worksheet[1]['A']));
+    }
+
     public function test_string_column_access()
     {
         $this->worksheet[1]['A'] = 'Some test value';
